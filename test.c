@@ -24,25 +24,25 @@ int main(void)
         printf("open edu device failure/n");
         return -1; 
     }
-    // ret = ioctl(fd, PRINT_EDUINFO_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, PRINT_EDUINFO_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
     
-    // ret = ioctl(fd, SEND_INTERRUPT_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, SEND_INTERRUPT_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
     
-    // ret = ioctl(fd, FACTORIAL_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, FACTORIAL_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
     
-    // ret = ioctl(fd, DMA_WRITE_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, DMA_WRITE_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
 
     ret = ioctl(fd, INC_CMD);
     if (ret < 0) {
