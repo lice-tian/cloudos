@@ -14,7 +14,7 @@
 #define EDU_DEVICE_ID 0x11e8
 #define QEMU_VENDOR_ID 0x1234
 
-#define INC_VAL 0x6
+#define COMPUTE_TYPE 0x6
 #define FACTORIA_VAL 0x8
 #define IO_FACTORIA_IRQ 0x20
 #define IO_IRQ_STATUS 0x24
@@ -147,6 +147,8 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case FACTORIAL_CMD:
 			iowrite32(0x80, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
+			iowrite32(0x0, mmio + COMPUTE_TYPE);
+			msleep(1000);
 			iowrite32(0xA, mmio + FACTORIA_VAL);
 			msleep(1000);
 			pr_info("computing result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
@@ -154,10 +156,11 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case INC_CMD:
 			iowrite32(0x40, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
-			iowrite32(0xA, mmio + INC_VAL);
+			iowrite32(0x1, mmio + COMPUTE_TYPE);
 			msleep(1000);
-			pr_info("computing result %x\n", ioread32((void*)(mmio + INC_VAL)));
-			break;
+			iowrite32(0xA, mmio + FACTORIA_VAL);
+			msleep(1000);
+			pr_info("computing result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
 
     }
     return 0;
