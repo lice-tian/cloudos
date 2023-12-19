@@ -34,10 +34,10 @@ int main(void)
     //     printf("ioctl: %d\n", ret);
     // }
     
-    ret = ioctl(fd, FACTORIAL_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, FACTORIAL_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
     
     // ret = ioctl(fd, DMA_WRITE_CMD);
     // if (ret < 0) {

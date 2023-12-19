@@ -154,7 +154,7 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 			pr_info("computing result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
 			break;
 		case INC_CMD:
-			iowrite32(0x40, mmio + IO_FACTORIA_IRQ);
+			iowrite32(0x20, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
 			iowrite32(0x1, mmio + COMPUTE_TYPE);
 			msleep(1000);
