@@ -147,7 +147,7 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case FACTORIAL_CMD:
 			iowrite32(0x80, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
-			iowrite32(0x0, mmio + COMPUTE_TYPE);
+			iowrite32(0x1, mmio + COMPUTE_TYPE);
 			msleep(1000);
 			iowrite32(0xA, mmio + FACTORIA_VAL);
 			msleep(1000);
@@ -156,7 +156,7 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case INC_CMD:
 			iowrite32(0x20, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
-			iowrite32(0x1, mmio + COMPUTE_TYPE);
+			iowrite32(0x0, mmio + COMPUTE_TYPE);
 			msleep(1000);
 			iowrite32(0xA, mmio + FACTORIA_VAL);
 			msleep(1000);
