@@ -23,47 +23,47 @@ int main(void)
         printf("open edu device failure/n");
         return -1; 
     }
-    ret = ioctl(fd, PRINT_EDUINFO_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, PRINT_EDUINFO_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
     
-    ret = ioctl(fd, SEND_INTERRUPT_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, SEND_INTERRUPT_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
     
-    ret = ioctl(fd, FACTORIAL_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, FACTORIAL_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
 
     ret = ioctl(fd, INC_CMD);
     if (ret < 0) {
         printf("ioctl: %d\n", ret);
     }
     
-    ret = ioctl(fd, DMA_WRITE_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, DMA_WRITE_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
     
     sleep(1);
     close(fd);
-    fd = open("/dev/edu",O_RDWR,S_IRUSR | S_IWUSR);
+    // fd = open("/dev/edu",O_RDWR,S_IRUSR | S_IWUSR);
     
-    if(fd == -1) {
-        printf("open edu device failure/n");
-        return -1; 
-    }
+    // if(fd == -1) {
+    //     printf("open edu device failure/n");
+    //     return -1; 
+    // }
     
-    ret = ioctl(fd, DMA_READ_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, DMA_READ_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
 
-    sleep(1);
-    close(fd);
+    // sleep(1);
+    // close(fd);
     return 0;
     
 }
