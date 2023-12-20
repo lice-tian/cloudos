@@ -14,7 +14,6 @@
 #define INC_CMD    _IO(MAGIC,0x1f)
 
 
-
 int main(void)
 {
     int fd, num, arg, ret;
@@ -34,7 +33,12 @@ int main(void)
         printf("ioctl: %d\n", ret);
     }
     
-    ret = ioctl(fd, FACTORIAL_CMD);
+    // ret = ioctl(fd, FACTORIAL_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
+
+    ret = ioctl(fd, INC_CMD);
     if (ret < 0) {
         printf("ioctl: %d\n", ret);
     }
@@ -43,28 +47,23 @@ int main(void)
     if (ret < 0) {
         printf("ioctl: %d\n", ret);
     }
-
-    ret = ioctl(fd, INC_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
     
     sleep(1);
     close(fd);
-    // fd = open("/dev/edu",O_RDWR,S_IRUSR | S_IWUSR);
+    fd = open("/dev/edu",O_RDWR,S_IRUSR | S_IWUSR);
     
-    // if(fd == -1) {
-    //     printf("open edu device failure/n");
-    //     return -1; 
-    // }
+    if(fd == -1) {
+        printf("open edu device failure/n");
+        return -1; 
+    }
     
-    // ret = ioctl(fd, DMA_READ_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, DMA_READ_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
 
-    // sleep(1);
-    // close(fd);
+    sleep(1);
+    close(fd);
     return 0;
     
 }
